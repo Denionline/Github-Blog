@@ -41,8 +41,8 @@ export const Publications = () => {
             <CardGrid>
                 {issues.items.map(issue => {
                     return (
-                        <NavLink to="/Publication" state={issue}>
-                            <Card key={issue.id}>
+                        <NavLink key={issue.id} to="/Publication" state={issue}>
+                            <Card>
                                 <div>
                                     <h3>{issue.title}</h3>
                                     <span>

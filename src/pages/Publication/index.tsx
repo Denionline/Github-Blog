@@ -6,14 +6,14 @@ import { NavLink, useLocation } from "react-router-dom";
 import { IssueType } from "../../context/GitContext";
 import { formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale/pt-BR";
-import Markdown from "react-markdown";
+import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 export const Publication = () => {
 
     const issue : IssueType = useLocation().state
     const { title, body, comments, html_url, user } = issue;
-
+    
     return (
         <PublicationContainer>
             <StartInformations>
@@ -52,9 +52,9 @@ export const Publication = () => {
                 </div>
             </StartInformations>
             <ContentPublication>
-                <Markdown remarkPlugins={[remarkGfm]} unwrapDisallowed={true}>
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>
                     {body}
-                </Markdown>
+                </ReactMarkdown>
             </ContentPublication>
         </PublicationContainer>
     )
